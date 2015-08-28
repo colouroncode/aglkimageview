@@ -503,7 +503,32 @@ class AGLKImageView: GLKView, UIGestureRecognizerDelegate {
                 } else if velocity.x == 0 {
                     return true
                 } else {
+                    var shouldPan = true
+                    if velocity.y < 0 {
+                        if zoomRect.maxY >= imageBounds.maxY {
+                            shouldPan = panningDelegate.aglkImageView(self, shouldPanInDirection: .Up)
+                        }
+                    } else {
+                        if zoomRect.minY <= imageBounds.minY {
+                            shouldPan = panningDelegate.aglkImageView(self, shouldPanInDirection: .Down)
+                        }
+                    }
                     
+                    if !shouldPan {
+                        return false
+                    }
+                    
+                    if velocity.x < 0 {
+                        if zoomRect.maxX >= imageBounds.maxX {
+                            shouldPan = panningDelegate.aglkImageView(self, shouldPanInDirection: .Left)
+                        }
+                    } else {
+                        if zoomRect.minX <= imageBounds.minX {
+                            shouldPan = panningDelegate.aglkImageView(self, shouldPanInDirection: .Right)
+                        }
+                    }
+                    
+                    return shouldPan
                 }
             }
         }

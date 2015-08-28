@@ -10,10 +10,12 @@ import UIKit
 
 class AGLKImageRenderer: NSObject {
     
+    private var imageID = 0
     private let cache = NSCache()
     var image: UIImage! {
         didSet {
             if image != oldValue {
+                imageID++
                 completionHandlers.removeAll(keepCapacity: false)
                 deleteCache()
             }
@@ -129,6 +131,7 @@ class AGLKImageRenderer: NSObject {
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             [unowned self] in
+            let currentImageID = self.imageID
             let originalImage = self.image
             let aspectRatio = CGFloat(originalImage.size.width/originalImage.size.height)
             let width = boundarySize.width
@@ -178,14 +181,16 @@ class AGLKImageRenderer: NSObject {
             let image = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
             
-            self.cache.setObject(image, forKey: sizeKey)
-            dispatch_async(dispatch_get_main_queue()) {
-                if let tasks = self.completionHandlers[scale] {
-                    for Ω in tasks {
-                        Ω.1(image.CGImage)
+            if currentImageID == self.imageID {
+                self.cache.setObject(image, forKey: sizeKey)
+                dispatch_async(dispatch_get_main_queue()) {
+                    if let tasks = self.completionHandlers[scale] {
+                        for Ω in tasks {
+                            Ω.1(image.CGImage)
+                        }
                     }
+                    self.removeCompletionHandlersForScale(scale)
                 }
-                self.removeCompletionHandlersForScale(scale)
             }
         }
     }
