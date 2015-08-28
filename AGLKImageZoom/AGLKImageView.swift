@@ -34,7 +34,7 @@ class AGLKImageView: GLKView, UIGestureRecognizerDelegate {
         SceneVertex(positionCoords: GLKVector3Make(1, 1, 0), textureCoords: GLKVector2Make(1, 1))
     ]
 
-    private let baseEffect = GLKBaseEffect()
+    private let baseEffect = AGLKImageEffect()
     private var attribArrayBuffer: AGLKVertexAttribArrayBuffer!
     
     private var textureInfo0: GLKTextureInfo! {

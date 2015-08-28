@@ -19,6 +19,11 @@
 		9B0BDE271B905C400044923C /* AGLKContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0BDE211B905C400044923C /* AGLKContext.swift */; };
 		9B0BDE281B905C400044923C /* AGLKMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0BDE221B905C400044923C /* AGLKMath.swift */; };
 		9B0BDE291B905C400044923C /* AGLKImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0BDE231B905C400044923C /* AGLKImageRenderer.swift */; };
+		9B3195C41B9113470094DE74 /* AGLKImageShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 9B3195C21B9113470094DE74 /* AGLKImageShader.fsh */; };
+		9B3195C51B9113470094DE74 /* AGLKImageShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 9B3195C31B9113470094DE74 /* AGLKImageShader.vsh */; };
+		9B3195C81B9113580094DE74 /* AGLKBaseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3195C61B9113580094DE74 /* AGLKBaseEffect.swift */; };
+		9B3195C91B9113580094DE74 /* AGLKImageEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3195C71B9113580094DE74 /* AGLKImageEffect.swift */; };
+		9B3195CD1B9113D80094DE74 /* sampleImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B3195CC1B9113D80094DE74 /* sampleImage.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,11 @@
 		9B0BDE211B905C400044923C /* AGLKContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGLKContext.swift; sourceTree = "<group>"; };
 		9B0BDE221B905C400044923C /* AGLKMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGLKMath.swift; sourceTree = "<group>"; };
 		9B0BDE231B905C400044923C /* AGLKImageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGLKImageRenderer.swift; sourceTree = "<group>"; };
+		9B3195C21B9113470094DE74 /* AGLKImageShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AGLKImageShader.fsh; sourceTree = "<group>"; };
+		9B3195C31B9113470094DE74 /* AGLKImageShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = AGLKImageShader.vsh; sourceTree = "<group>"; };
+		9B3195C61B9113580094DE74 /* AGLKBaseEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGLKBaseEffect.swift; sourceTree = "<group>"; };
+		9B3195C71B9113580094DE74 /* AGLKImageEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGLKImageEffect.swift; sourceTree = "<group>"; };
+		9B3195CC1B9113D80094DE74 /* sampleImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sampleImage.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +101,17 @@
 			children = (
 				9B0BDDFE1B905C310044923C /* AppDelegate.swift */,
 				9B0BDE001B905C310044923C /* ViewController.swift */,
+				9B3195C61B9113580094DE74 /* AGLKBaseEffect.swift */,
+				9B3195C71B9113580094DE74 /* AGLKImageEffect.swift */,
 				9B0BDE1E1B905C400044923C /* AGLKImageView.swift */,
 				9B0BDE1F1B905C400044923C /* AGLKViewListener.swift */,
 				9B0BDE201B905C400044923C /* AGLKVertexAttribArrayBuffer.swift */,
 				9B0BDE211B905C400044923C /* AGLKContext.swift */,
 				9B0BDE221B905C400044923C /* AGLKMath.swift */,
 				9B0BDE231B905C400044923C /* AGLKImageRenderer.swift */,
+				9B3195CC1B9113D80094DE74 /* sampleImage.jpg */,
+				9B3195C21B9113470094DE74 /* AGLKImageShader.fsh */,
+				9B3195C31B9113470094DE74 /* AGLKImageShader.vsh */,
 				9B0BDE021B905C310044923C /* Main.storyboard */,
 				9B0BDE051B905C310044923C /* Images.xcassets */,
 				9B0BDE071B905C310044923C /* LaunchScreen.xib */,
@@ -210,9 +225,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3195C51B9113470094DE74 /* AGLKImageShader.vsh in Resources */,
 				9B0BDE041B905C310044923C /* Main.storyboard in Resources */,
 				9B0BDE091B905C310044923C /* LaunchScreen.xib in Resources */,
+				9B3195CD1B9113D80094DE74 /* sampleImage.jpg in Resources */,
 				9B0BDE061B905C310044923C /* Images.xcassets in Resources */,
+				9B3195C41B9113470094DE74 /* AGLKImageShader.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +253,9 @@
 				9B0BDE011B905C310044923C /* ViewController.swift in Sources */,
 				9B0BDE291B905C400044923C /* AGLKImageRenderer.swift in Sources */,
 				9B0BDE251B905C400044923C /* AGLKViewListener.swift in Sources */,
+				9B3195C91B9113580094DE74 /* AGLKImageEffect.swift in Sources */,
 				9B0BDDFF1B905C310044923C /* AppDelegate.swift in Sources */,
+				9B3195C81B9113580094DE74 /* AGLKBaseEffect.swift in Sources */,
 				9B0BDE261B905C400044923C /* AGLKVertexAttribArrayBuffer.swift in Sources */,
 				9B0BDE241B905C400044923C /* AGLKImageView.swift in Sources */,
 			);
@@ -435,6 +455,7 @@
 				9B0BDE1A1B905C310044923C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B0BDE1B1B905C310044923C /* Build configuration list for PBXNativeTarget "AGLKImageZoomTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +464,7 @@
 				9B0BDE1D1B905C310044923C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

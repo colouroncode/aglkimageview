@@ -9,10 +9,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let imageView = AGLKImageView(frame: CGRectZero, image: UIImage(named: "sampleImage.jpg")!)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(imageView)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        imageView.frame = CGRect(origin: CGPointZero, size: view.bounds.size)
     }
 
     override func didReceiveMemoryWarning() {
