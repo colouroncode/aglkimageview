@@ -323,7 +323,7 @@ class AGLKImageView: GLKView, UIGestureRecognizerDelegate {
             let time = Float(0.2)
             
             let xMovement = Float(zoomRect.minX) - distanceTravelled(Float(velocity.x), -Float(abs(velocity.x))/time, time)
-            let yMovement = Float(zoomRect.minY) - distanceTravelled(Float(velocity.y), -Float(abs(velocity.x))/time, time)
+            let yMovement = Float(zoomRect.minY) - distanceTravelled(Float(velocity.y), -Float(abs(velocity.y))/time, time)
             
             let scale = baseEffect.transform.modelviewMatrix.scale
             
