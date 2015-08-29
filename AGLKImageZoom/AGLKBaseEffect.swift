@@ -13,14 +13,10 @@ enum AGLKVertexAttribute: GLint {
     case Normal
     case Color
     case TexCoords0
-    case TexCoords1
-    case Opacity
-    case JointMatrixIndices
-    case JointNormalizedWeights
     
     static var numberOfAttributes: Int {
         get {
-            return Int(AGLKVertexAttribute.JointNormalizedWeights.rawValue) + 1
+            return Int(AGLKVertexAttribute.TexCoords0.rawValue) + 1
         }
     }
     
@@ -38,18 +34,6 @@ enum AGLKVertexAttribute: GLint {
                 
             case .TexCoords0:
                 return "a_texCoords0"
-                
-            case .TexCoords1:
-                return "a_texCoords1"
-                
-            case .Opacity:
-                return "a_opacity"
-                
-            case .JointMatrixIndices:
-                return "a_jointMatrixIndices"
-                
-            case .JointNormalizedWeights:
-                return "a_jointNormalizedWeights"
                 
             default:
                 return ""
